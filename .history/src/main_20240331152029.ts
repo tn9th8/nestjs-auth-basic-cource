@@ -21,6 +21,9 @@ async function bootstrap() {
   app.setBaseViewsDir(join(__dirname, '..', 'src/views'));
   app.setViewEngine('ejs');
 
+  // coonfig validation pipe
+  app.useGlobalPipes(new ValidationPipe());
+
   //config cookies
   app.use(cookieParser());
 
@@ -42,9 +45,6 @@ async function bootstrap() {
   //config passport
   app.use(passport.initialize());
   app.use(passport.session());
-
-  // coonfig auto-validation
-  app.useGlobalPipes(new ValidationPipe());
 
   await app.listen(port);
 }

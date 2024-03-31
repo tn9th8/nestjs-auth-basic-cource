@@ -51,7 +51,6 @@ export class UsersService implements OnModuleInit {
       ]);
     }
   }
-
   getHashPassword = (plainPassword: string) => {
     const salt = genSaltSync(10); // config
     const hash = hashSync(plainPassword, salt); // hash
